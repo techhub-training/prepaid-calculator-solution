@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prepaid Amortization Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Prepaid Amortization Calculator</h1>
+  <p class="lede">Ridgeline Home &amp; Tool pays some costs in advance and expenses them evenly, month by month. Enter a prepaid to see its schedule.</p>
+  <form id="form">
+    <label>Prepaid ID <input id="pid" value="PP-09" autocomplete="off"></label>
+    <label>Total cost ($) <input id="total" type="number" step="0.01" min="0.01" value="8280.00" required></label>
+    <label>First month <input id="first" type="month" value="2026-11" required></label>
+    <label>Number of months <input id="months" type="number" step="1" min="1" max="120" value="7" required></label>
+    <button type="submit">Show schedule</button>
+  </form>
+  <p id="error" role="alert"></p>
+  <section id="schedule" hidden>
+    <table>
+      <thead><tr><th>Month</th><th>Amortization</th><th>Remaining balance</th></tr></thead>
+      <tbody id="tbody"></tbody>
+      <tfoot><tr><th>Total</th><th id="totalOut"></th><th></th></tr></tfoot>
+    </table>
+    <button id="download" type="button">Download CSV</button>
+  </section>
+  <p class="note">Each month is the total divided by the months, rounded to the cent; the last month takes the rounding difference so the balance ends at 0.00. A TechHub.training solution. Ridgeline is fictional.</p>
+</main>
+<script src="amortize.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
